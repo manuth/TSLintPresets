@@ -1,0 +1,10 @@
+suite(
+    "TSLintRulesets",
+    () =>
+    {
+        test(
+            "Example...",
+            () =>
+            {
+            });
+    });
