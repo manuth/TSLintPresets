@@ -41,7 +41,7 @@ async function testConfig(path: string)
 }
 
 suite(
-    "TSLintRulesets",
+    "TSLintPresets",
     () =>
     {
 
