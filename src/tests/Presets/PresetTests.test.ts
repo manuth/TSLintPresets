@@ -120,10 +120,10 @@ export abstract class PresetTests
     }
 
     /**
-     * Tests code-lines for errors.
+     * Tests code-snippets for errors.
      *
-     * @param codeLines
-     * The code-lines to test.
+     * @param codeSnippets
+     * The code-snippets to test.
      *
      * @param ruleName
      * The name of the rule to test.
@@ -131,9 +131,9 @@ export abstract class PresetTests
      * @param error
      * A value indicating whether an error is expected.
      */
-    protected async TestCode(codeLines: string[], ruleName: string, error: boolean)
+    protected async TestCode(codeSnippets: string[], ruleName: string, error: boolean)
     {
-        for (let codeLine of codeLines)
+        for (let codeLine of codeSnippets)
         {
             Assert.strictEqual(
                 (await this.ProcessCode(codeLine)).filter(
