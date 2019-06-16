@@ -20,7 +20,7 @@ export abstract class PresetTests
     /**
      * Gets the temporary directory for the tests.
      */
-    protected readonly TempDir: TempDirectory;
+    protected TempDir: TempDirectory;
 
     /**
      * Gets the path to the preset to test.
@@ -30,17 +30,78 @@ export abstract class PresetTests
     /**
      * Initializes a new instance of the `PresetTests` class.
      *
-     * @param tempDir
-     * The temporary directory for the tests.
-     *
      * @param presetPath
      * The path of the preset to test.
      */
-    public constructor(tempDir: TempDirectory, presetPath: string)
+    public constructor(presetPath: string)
     {
-        this.TempDir = tempDir;
         this.PresetPath = presetPath;
+    }
 
+    /**
+     * Registers the tests.
+     */
+    public Register()
+    {
+        let self = this;
+
+        suite(
+            "Checking the integrity of the preset…",
+            () =>
+            {
+                suiteSetup(() => this.Initialize());
+                suiteTeardown(() => this.Dispose());
+
+                for (let ruleTest of this.RuleTests)
+                {
+                    suite(
+                        "Checking the integrity of the `" + ruleTest.RuleName + "`-rule…",
+                        async () =>
+                        {
+                            if (ruleTest.Preprocess)
+                            {
+                                suiteSetup(ruleTest.Preprocess);
+                            }
+
+                            if (ruleTest.ValidCode)
+                            {
+                                test(
+                                    "Testing valid code-snipptets…",
+                                    async function()
+                                    {
+                                        this.slow(30 * 1000);
+                                        this.timeout(60 * 1000);
+                                        await self.TestCode(ruleTest.ValidCode, ruleTest.RuleName, false);
+                                    });
+                            }
+
+                            if (ruleTest.InvalidCode)
+                            {
+                                test(
+                                    "Testing invalid code-snipptes…",
+                                    async function()
+                                    {
+                                        this.slow(30 * 1000);
+                                        this.timeout(60 * 1000);
+                                        await self.TestCode(ruleTest.InvalidCode, ruleTest.RuleName, true);
+                                    });
+                            }
+
+                            if (ruleTest.Postprocess)
+                            {
+                                suiteTeardown(ruleTest.Postprocess);
+                            }
+                        });
+                }
+            });
+    }
+
+    /**
+     * Initializes the tests.
+     */
+    protected Initialize()
+    {
+        this.TempDir = new TempDirectory();
         FileSystem.writeJSONSync(
             this.TempDir.MakePath("tsconfig.json"), {});
 
@@ -52,53 +113,11 @@ export abstract class PresetTests
     }
 
     /**
-     * Registers the tests.
+     * Disposes the tests.
      */
-    public Register()
+    protected Dispose()
     {
-        let self = this;
-
-        for (let ruleTest of this.RuleTests)
-        {
-            suite(
-                "Checking the integrity of the `" + ruleTest.RuleName + "`-rule…",
-                async () =>
-                {
-                    if (ruleTest.Preprocess)
-                    {
-                        suiteSetup(ruleTest.Preprocess);
-                    }
-
-                    if (ruleTest.ValidCode)
-                    {
-                        test(
-                            "Testing valid code-snipptets…",
-                            async function()
-                            {
-                                this.slow(30 * 1000);
-                                this.timeout(60 * 1000);
-                                await self.TestCode(ruleTest.ValidCode, ruleTest.RuleName, false);
-                            });
-                    }
-
-                    if (ruleTest.InvalidCode)
-                    {
-                        test(
-                            "Testing invalid code-snipptes…",
-                            async function()
-                            {
-                                this.slow(30 * 1000);
-                                this.timeout(60 * 1000);
-                                await self.TestCode(ruleTest.InvalidCode, ruleTest.RuleName, true);
-                            });
-                    }
-
-                    if (ruleTest.Postprocess)
-                    {
-                        suiteTeardown(ruleTest.Postprocess);
-                    }
-                });
-        }
+        this.TempDir.Dispose();
     }
 
     /**

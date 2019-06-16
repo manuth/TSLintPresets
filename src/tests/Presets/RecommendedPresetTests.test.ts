@@ -10,15 +10,12 @@ export class RecommendedPresetTests extends PresetTests
     /**
      * Initializes a new instance of the `RecommendedPresetTests` class.
      *
-     * @param tempDir
-     * The temporary directory for the tests.
-     *
      * @param presetPath
      * The path of the preset to test.
      */
-    public constructor(tempDir: TempDirectory, presetPath: string)
+    public constructor(presetPath: string)
     {
-        super(tempDir, presetPath);
+        super(presetPath);
 
         this.RuleTests = [
             {

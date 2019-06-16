@@ -5,15 +5,5 @@ suite(
     "Weak",
     () =>
     {
-        /**
-         * The temporary directory for the tests.
-         */
-        let tempDir = new TempDirectory();
-
-        /**
-         * An object which provides tests.
-         */
-        let presetTests = new WeakPresetTests(tempDir);
-
-        presetTests.Register();
+        new WeakPresetTests().Register();
     });

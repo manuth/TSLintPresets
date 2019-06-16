@@ -9,14 +9,11 @@ export class WeakPresetTests extends RecommendedPresetTests
 {
     /**
      * Initializes a new instance of the `WeakPresetTests` class.
-     *
-     * @param tempDir
-     * The temporary directory for the tests.
      */
-    public constructor(tempDir: TempDirectory)
+    public constructor()
     {
         let presetPath = Path.join(__dirname, "..", "..", "..", "weak");
-        super(tempDir, presetPath);
+        super(presetPath);
         let rules: string[] = [];
         let settings = require(presetPath);
 
