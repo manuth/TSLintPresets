@@ -18,7 +18,7 @@ export abstract class PresetTests
     public RuleTests: IRuleTest[] = [];
 
     /**
-     * Gets the temporary directory for the tests.
+     * Gets or sets the temporary directory for the tests.
      */
     protected TempDir: TempDirectory;
 
