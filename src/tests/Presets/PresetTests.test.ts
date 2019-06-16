@@ -152,7 +152,7 @@ export abstract class PresetTests
      * The code to test.
      *
      * @return
-     * The exit-code of `tslint`.
+     * The result of `tslint`.
      */
     protected async ProcessCode(code: string): Promise<any[]>
     {
