@@ -4,4 +4,5 @@ suite(
     {
         require("./Default.test");
         require("./Recommended.test");
+        require("./Weak.test");
     });
