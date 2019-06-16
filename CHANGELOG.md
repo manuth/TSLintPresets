@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## TSLintPresets v1.0.2
   - Rework the `completed-docs`-rule
 
-[Show differences](https://github.com/manuth/TSLintPresets/compare/v1.0.0...v1.0.1)
+[Show differences](https://github.com/manuth/TSLintPresets/compare/v1.0.1...v1.0.2)
 
 ## TSLintPresets v1.0.1
   - Improve the stability of the code
