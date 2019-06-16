@@ -14,7 +14,7 @@ export abstract class PresetTests
     /**
      * Gets or sets tests for tslint-rules.
      */
-    public RuleTests: IRuleTest[] = [];
+    protected RuleTests: IRuleTest[] = [];
 
     /**
      * Gets or sets the temporary directory for the tests.
