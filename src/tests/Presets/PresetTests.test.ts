@@ -4,7 +4,6 @@ import FileSystem = require("fs-extra");
 import npmWhich = require("npm-which");
 import Path = require("path");
 import { TempDirectory } from "temp-filesystem";
-import UPath = require("upath");
 import { IRuleTest } from "./IRuleTest.test";
 
 /**
@@ -49,7 +48,7 @@ export abstract class PresetTests
             "Checking the integrity of the preset…",
             () =>
             {
-                suiteSetup(() => this.Initialize());
+                suiteSetup(async () => this.Initialize());
                 suiteTeardown(() => this.Dispose());
 
                 for (let ruleTest of this.RuleTests)
@@ -99,16 +98,16 @@ export abstract class PresetTests
     /**
      * Initializes the tests.
      */
-    protected Initialize()
+    protected async Initialize()
     {
         this.TempDir = new TempDirectory();
-        FileSystem.writeJSONSync(
+        await FileSystem.writeJSON(
             this.TempDir.MakePath("tsconfig.json"), {});
 
-        FileSystem.writeJSONSync(
+        await FileSystem.writeJSON(
             this.TempDir.MakePath("tslint.json"),
             {
-                extends: UPath.toUnix(Path.relative(this.TempDir.MakePath(), this.PresetPath))
+                extends: Path.relative(this.TempDir.MakePath(), this.PresetPath)
             });
     }
 

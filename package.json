@@ -29,7 +29,6 @@
     "temp-filesystem": "^1.1.1",
     "tslint": "^5.17.0",
     "typescript": "^3.5.2",
-    "typescript-tslint-plugin": "^0.5.0",
-    "upath": "^1.1.2"
+    "typescript-tslint-plugin": "^0.5.0"
   }
 }
