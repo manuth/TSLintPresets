@@ -1,6 +1,6 @@
 {
   "name": "@manuth/tslint-presets",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A set of personal linting-rulesets for TypeScript",
   "author": "Manuel Thalmann <m@nuth.ch>",
   "keywords": [],
@@ -29,7 +29,6 @@
     "temp-filesystem": "^1.1.1",
     "tslint": "^5.17.0",
     "typescript": "^3.5.2",
-    "typescript-tslint-plugin": "^0.5.0",
-    "upath": "^1.1.2"
+    "typescript-tslint-plugin": "^0.5.0"
   }
 }

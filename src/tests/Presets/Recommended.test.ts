@@ -1,5 +1,4 @@
 import Path = require("path");
-import { TempDirectory } from "temp-filesystem";
 import { RecommendedPresetTests } from "./RecommendedPresetTests.test";
 
 suite(

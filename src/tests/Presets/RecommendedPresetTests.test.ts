@@ -1,5 +1,4 @@
 import FileSystem = require("fs-extra");
-import { TempDirectory } from "temp-filesystem";
 import { PresetTests } from "./PresetTests.test";
 
 /**
