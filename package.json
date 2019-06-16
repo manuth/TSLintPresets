@@ -1,11 +1,25 @@
 {
   "name": "@manuth/tslint-presets",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A set of personal linting-rulesets for TypeScript",
   "author": "Manuel Thalmann <m@nuth.ch>",
-  "keywords": [],
+  "license": "MIT",
+  "keywords": [
+    "tslint",
+    "Linting",
+    "TypeScript",
+    "Presets"
+  ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuth/TSLintPresets.git"
+  },
+  "bugs": {
+    "url": "https://github.com/manuth/TSLintPresets/issues"
+  },
+  "homepage": "https://github.com/manuth/TSLintPresets#readme",
   "scripts": {
     "build": "tsc -p .",
     "rebuild": "npm run clean && npm run build",
