@@ -86,7 +86,7 @@
         "return-undefined": true,
         "space-before-function-paren": {
             "options": {
-                "anonymous": "always",
+                "anonymous": "never",
                 "asyncArrow": "always",
                 "constructor": "never",
                 "method": "never",
