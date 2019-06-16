@@ -1,1 +1,1 @@
-module.exports = require("./tslint.json");
+module.exports = require("./recommended/tslint.json");
