@@ -8,7 +8,7 @@ import { PresetTests } from "./PresetTests.test";
 export class RecommendedPresetTests extends PresetTests
 {
     /**
-     * Initializes a new instance of the `PresetTests` class.
+     * Initializes a new instance of the `RecommendedPresetTests` class.
      *
      * @param tempDir
      * The temporary directory for the tests.
