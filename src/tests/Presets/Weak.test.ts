@@ -1,4 +1,3 @@
-import { TempDirectory } from "temp-filesystem";
 import { WeakPresetTests } from "./WeakPresetTests.test";
 
 suite(
