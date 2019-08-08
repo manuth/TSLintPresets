@@ -1,6 +1,6 @@
 {
   "name": "@manuth/tslint-presets",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A set of personal linting-rulesets for TypeScript",
   "author": "Manuel Thalmann <m@nuth.ch>",
   "license": "MIT",
