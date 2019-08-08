@@ -2,7 +2,10 @@
     "defaultSeverity": "warning",
     "extends": "tslint:recommended",
     "rules": {
-        "await-promise": true,
+        "await-promise": [
+          true,
+          "Thenable"
+        ],
         "ban-comma-operator": true,
         "forin": false,
         "no-bitwise": false,
