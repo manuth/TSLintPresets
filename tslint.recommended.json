@@ -25,7 +25,10 @@
         },
         "no-empty-interface": false,
         "no-inferrable-types": true,
-        "await-promise": true,
+        "await-promise": [
+          true,
+          "Thenable"
+        ],
         "ban-comma-operator": true,
         "forin": false,
         "no-bitwise": false,
@@ -131,7 +134,6 @@
                 ]
             }
         },
-        "await-promise": true,
         "ban-comma-operator": true,
         "forin": false,
         "no-bitwise": false,
