@@ -1,3 +1,7 @@
+# THIS PACKAGE IS DEPRECATED
+As it is recommended to move from `tslint` to `eslint`, this package is now deprecated.  
+You might want to move on to using `eslint` and install use the presets of the [`@manuth/eslint-plugin-typescript` package](https://github.com/manuth/ESLintPresets.git).
+
 # TSLintPresets
 A set of personal linting-rulesets for TypeScript
 
