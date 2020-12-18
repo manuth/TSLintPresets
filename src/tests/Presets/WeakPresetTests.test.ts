@@ -49,8 +49,10 @@ export class WeakPresetTests extends RecommendedPresetTests
                                 public B: Task<T>[];
                             }`
                         ];
+                        break;
                     default:
                         this.RuleTests.push(ruleTest);
+                        break;
                 }
             }
         }
