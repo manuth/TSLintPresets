@@ -294,7 +294,16 @@ export class RecommendedPresetTests extends PresetTests
                     let test = {
                         "a": null,
                         "z": null
-                    }`
+                    }`,
+                    "let test = [1,2]"
+                ],
+                InvalidCode: [
+                    `
+                    let test = {
+                        "a": null,
+                        "z": null,
+                    }`,
+                    "let test = [1,2,]"
                 ]
             },
             {
