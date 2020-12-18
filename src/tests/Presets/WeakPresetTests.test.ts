@@ -14,6 +14,7 @@ export class WeakPresetTests extends RecommendedPresetTests
         let presetPath = Path.join(__dirname, "..", "..", "..", "weak");
         super(presetPath);
         let rules: string[] = [];
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         let settings = require(presetPath);
 
         if (settings.rules)
@@ -29,7 +30,7 @@ export class WeakPresetTests extends RecommendedPresetTests
 
         for (let ruleTest of ruleTests)
         {
-            if (rules.indexOf(ruleTest.RuleName) >= 0)
+            if (rules.includes(ruleTest.RuleName))
             {
                 switch (ruleTest.RuleName)
                 {
@@ -49,6 +50,10 @@ export class WeakPresetTests extends RecommendedPresetTests
                                 public B: Task<T>[];
                             }`
                         ];
+                        break;
+                    case "trailing-comma":
+                        ruleTest.ValidCode.push(...ruleTest.InvalidCode);
+                        ruleTest.InvalidCode = null;
                         break;
                     default:
                         this.RuleTests.push(ruleTest);
