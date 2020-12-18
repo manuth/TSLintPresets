@@ -1,8 +1,8 @@
 import Assert = require("assert");
 import { spawnSync } from "child_process";
+import Path = require("path");
 import FileSystem = require("fs-extra");
 import npmWhich = require("npm-which");
-import Path = require("path");
 import { TempDirectory } from "temp-filesystem";
 import { IRuleTest } from "./IRuleTest.test";
 
@@ -40,7 +40,7 @@ export abstract class PresetTests
     /**
      * Registers the tests.
      */
-    public Register()
+    public Register(): void
     {
         let self = this;
 
@@ -98,9 +98,10 @@ export abstract class PresetTests
     /**
      * Initializes the tests.
      */
-    protected async Initialize()
+    protected async Initialize(): Promise<void>
     {
         this.TempDir = new TempDirectory();
+
         await FileSystem.writeJSON(
             this.TempDir.MakePath("tsconfig.json"), {});
 
@@ -114,7 +115,7 @@ export abstract class PresetTests
     /**
      * Disposes the tests.
      */
-    protected Dispose()
+    protected Dispose(): void
     {
         this.TempDir.Dispose();
     }
@@ -131,7 +132,7 @@ export abstract class PresetTests
      * @param error
      * A value indicating whether an error is expected.
      */
-    protected async TestCode(codeSnippets: string[], ruleName: string, error: boolean)
+    protected async TestCode(codeSnippets: string[], ruleName: string, error: boolean): Promise<void>
     {
         for (let codeLine of codeSnippets)
         {
@@ -151,7 +152,7 @@ export abstract class PresetTests
      * @param code
      * The code to test.
      *
-     * @return
+     * @returns
      * The result of `tslint`.
      */
     protected async ProcessCode(code: string): Promise<any[]>
