@@ -47,10 +47,10 @@ export class RecommendedPresetTests extends PresetTests
             {
                 RuleName: "no-inferrable-types",
                 ValidCode: [
-                    `let test = "";`
+                    'let test = "";'
                 ],
                 InvalidCode: [
-                    `let test: string = "";`
+                    'let test: string = "";'
                 ]
             },
             {
@@ -61,13 +61,13 @@ export class RecommendedPresetTests extends PresetTests
                     await promise;`
                 ],
                 InvalidCode: [
-                    `await "test";`
+                    'await "test";'
                 ]
             },
             {
                 RuleName: "ban-comma-operator",
                 InvalidCode: [
-                    `let test = (1, 2)`,
+                    "let test = (1, 2)",
                     `
                     switch (null) {
                         case 1, 2:
@@ -88,13 +88,13 @@ export class RecommendedPresetTests extends PresetTests
             {
                 RuleName: "no-bitwise",
                 ValidCode: [
-                    `let test = 1 | 2;`
+                    "let test = 1 | 2;"
                 ]
             },
             {
                 RuleName: "no-console",
                 ValidCode: [
-                    `console.log("");`
+                    'console.log("");'
                 ]
             },
             {
@@ -135,7 +135,7 @@ export class RecommendedPresetTests extends PresetTests
             {
                 RuleName: "no-empty",
                 ValidCode: [
-                    `function() { }`
+                    "function() { }"
                 ]
             },
             {
@@ -198,10 +198,10 @@ export class RecommendedPresetTests extends PresetTests
             {
                 RuleName: "no-sparse-arrays",
                 ValidCode: [
-                    `let test = [1,2];`
+                    "let test = [1,2];"
                 ],
                 InvalidCode: [
-                    `let test = [1,,2];`
+                    "let test = [1,,2];"
                 ]
             },
             {
@@ -212,21 +212,21 @@ export class RecommendedPresetTests extends PresetTests
                     console.log("" + "");`
                 ],
                 InvalidCode: [
-                    `console.log("" + 1);`
+                    'console.log("" + 1);'
                 ]
             },
             {
                 RuleName: "triple-equals",
                 ValidCode: [
-                    `console.log(1 === 1);`
+                    "console.log(1 === 1);"
                 ],
                 InvalidCode: [
-                    `console.log(1 == 1);`
+                    "console.log(1 == 1);"
                 ]
             },
             {
                 RuleName: "eofline",
-                ValidCode: [``]
+                ValidCode: [""]
             },
             {
                 RuleName: "max-classes-per-file",
@@ -285,7 +285,7 @@ export class RecommendedPresetTests extends PresetTests
             },
             {
                 RuleName: "prefer-const",
-                ValidCode: [`let test = null;`]
+                ValidCode: ["let test = null;"]
             },
             {
                 RuleName: "trailing-comma",
@@ -294,7 +294,16 @@ export class RecommendedPresetTests extends PresetTests
                     let test = {
                         "a": null,
                         "z": null
-                    }`
+                    }`,
+                    "let test = [1,2]"
+                ],
+                InvalidCode: [
+                    `
+                    let test = {
+                        "a": null,
+                        "z": null,
+                    }`,
+                    "let test = [1,2,]"
                 ]
             },
             {
@@ -320,23 +329,23 @@ export class RecommendedPresetTests extends PresetTests
                     {
                         protected InnerList: Task<T>[] = [];
                     }`,
-                    `let test: Array<string>;`
+                    "let test: Array<string>;"
                 ]
             },
             {
                 RuleName: "arrow-parens",
                 ValidCode: [
-                    `let testFunction = test => console.log(test);`
+                    "let testFunction = test => console.log(test);"
                 ]
             },
             {
                 RuleName: "comment-format",
                 ValidCode: [
-                    `// A test`
+                    "// A test"
                 ],
                 InvalidCode: [
-                    `//A`,
-                    `// a`
+                    "//A",
+                    "// a"
                 ]
             },
             {
@@ -399,8 +408,8 @@ export class RecommendedPresetTests extends PresetTests
                     let test = { };`
                 ],
                 InvalidCode: [
-                    `class Test { }`,
-                    `enum Test { }`,
+                    "class Test { }",
+                    "enum Test { }",
                     `
                     /**
                      * A
@@ -409,8 +418,8 @@ export class RecommendedPresetTests extends PresetTests
                     {
                         Test
                     }`,
-                    `function Test() { }`,
-                    `interface ITest { }`,
+                    "function Test() { }",
+                    "interface ITest { }",
                     `
                     /**
                      * A
@@ -438,8 +447,8 @@ export class RecommendedPresetTests extends PresetTests
                     {
                         Test;
                     }`,
-                    `type Test = { }`,
-                    `let test = { }`
+                    "type Test = { }",
+                    "let test = { }"
                 ]
             },
             {
@@ -453,10 +462,10 @@ export class RecommendedPresetTests extends PresetTests
                         export default Importer;`);
                 },
                 ValidCode: [
-                    `import Importer from "./Importer";`
+                    'import Importer from "./Importer";'
                 ],
                 InvalidCode: [
-                    `import ImpOrtär from "./Importer";`
+                    'import ImpOrtär from "./Importer";'
                 ],
                 Postprocess: async () =>
                 {
@@ -574,19 +583,19 @@ export class RecommendedPresetTests extends PresetTests
             {
                 RuleName: "number-literal-format",
                 ValidCode: [
-                    `let x = 0.5;`
+                    "let x = 0.5;"
                 ],
                 InvalidCode: [
-                    `let x = .5;`
+                    "let x = .5;"
                 ]
             },
             {
                 RuleName: "prefer-object-spread",
                 ValidCode: [
-                    `let x = {...{}, test: ""};`
+                    'let x = {...{}, test: ""};'
                 ],
                 InvalidCode: [
-                    `let x = Object.assign({}, {test: ""});`
+                    'let x = Object.assign({}, {test: ""});'
                 ]
             },
             {
@@ -632,8 +641,8 @@ export class RecommendedPresetTests extends PresetTests
                     function testFunction() { }`
                 ],
                 InvalidCode: [
-                    `console.log(function () { });`,
-                    `console.log(async() => { });`,
+                    "console.log(function () { });",
+                    "console.log(async() => { });",
                     `
                     class Test
                     {
@@ -644,7 +653,7 @@ export class RecommendedPresetTests extends PresetTests
                     {
                         public Test () { }
                     }`,
-                    `function Test () { }`
+                    "function Test () { }"
                 ]
             }
         ];

@@ -52,7 +52,12 @@
         "no-trailing-whitespace": true,
         "object-literal-sort-keys": false,
         "prefer-const": false,
-        "trailing-comma": false,
+        "trailing-comma": {
+          "options": {
+            "multiline": "never",
+            "singleline": "never"
+          }
+        },
         "array-type": {
             "options": "array-simple"
         },
